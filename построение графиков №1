@@ -1,0 +1,87 @@
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0,10,50)
+y = xx
+plt.title("Çàâèñèìîñòü y = xx ")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid()
+plt.plot(x,y,'r--')
+
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0,10,50)
+y1 = np.sin(3x)
+y2 = np.cos(x)
+plt.title("Çàâèñèìîñòè: y1 = sin(2x), y2 = cos(x)")
+plt.xlabel("x")
+plt.ylabel("y1,y2")
+plt.grid()
+plt.plot(x,y1,y2)
+
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0,30,60)
+y1 = 5xx+27x+8
+y2 = x
+plt.figure(figsize=(9,9))
+plt.subplot(3,1,1)
+plt.plot(x,y1)
+plt.title("Çàâèñèìîñòè: y1 = 3xx+27x+8, y2 = x")
+plt.ylabel("y1",fontsize=16)
+plt.grid(True)
+plt.subplot(3,1,3)
+plt.plot(x,y2)
+plt.xlabel("x",fontsize=16)
+plt.ylabel("y2",fontsize=16)
+plt.grid(True)
+
+import matplotlib.pyplot as plt
+countries = ["Russia", "Great britain", "Asia", "France"]
+counts = [150,2,5,50]
+plt.bar(countries,counts)
+plt.title("Countries!")
+plt.xlabel("Countries")
+plt.ylabel("Count")
+
+import matplotlib.pyplot as plt
+import numpy as np
+x = [0,2,6,10]
+y = [0,4,8,12]
+plt.plot(x,y,label = 'the price of gold')
+plt.xlabel('Year',fontsize=13,color ='red')
+plt.ylabel('Price',fontsize=13,color ='red')
+plt.legend()
+plt.grid(True)
+plt.text(16,6,'grow up!')
+
+import matplotlib.pyplot as plt
+import numpy as np
+x = [1,2,3,4,15]
+y1 = [1,5,6,2,7]
+y2 = [i8+1 for i in y1]
+y3 = [i8+1 for i in y2]
+plt.plot(x,y1,':',x,y2,'-',x,y3,'--')
+
+import matplotlib.pyplot as plt
+import numpy as np
+x = [2,5,8]
+y = [2,8,15]
+plt.plot(x,y,'g*')
+
+import matplotlib.pyplot as plt
+import numpy as np
+x = [1,5,10,15,20]
+y1 = [1,7,3,5,11]
+y2 = [i2 + 1 for i in y1]
+y3 = [i2 + 1 for i in y2]
+y4 = [i**2 + 1 for i in y3]
+plt.figure(figsize=(12,7))
+plt.subplot(2,2,1)
+plt.plot(x,y1,'-')
+plt.subplot(2,2,2)
+plt.plot(x,y2,'--')
+plt.subplot(2,2,3)
+plt.plot(x,y3,'-')
+plt.subplot(2,2,4)
+plt.plot(x,y4,':')
