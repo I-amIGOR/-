@@ -1,0 +1,137 @@
+ 
+import numpy as np
+import sklearn.preprocessing
+
+Input_data = np.array([2.1, -1.9, 5.5],
+[0.5, -7.9, 5.6],
+[-1.5, 2.4, 3.5],
+[5.9, 2.3, -5.8])
+data_binarized = preprocessing.Binarizer(threshold = 0.5).transform(input_data)
+print("\nBinarized data:\n", data_binarized)
+
+
+
+import numpy as np
+import sklearn.preprocessing
+
+Input_data = np.array([2.1, -1.9, 5.5],
+[0.5, -7.9, 5.6],
+[-1.5, 2.4, 3.5],
+[5.9, 2.3, -5.8])
+print("Mean = ", input_data.mean(axis = 0))
+print("Std deviation = ", input_data.std(axis = 0))
+
+
+
+import numpy as np
+import sklearn.preprocessing
+
+Input_data = np.array([2.1, -1.9, 5.5],
+[0.5, -7.9, 5.6],
+[-1.5, 2.4, 3.5],
+[5.9, 2.3, -5.8])
+data_scaler_minmax = preprocessing.MinMaxScaler(feature_range=(0,1))
+data_scaled_minmax = data_scaler_minmax.fit_transform(input_data)
+print ("\nMin max scaled data:\n", data_scaled_minmax)
+
+
+import numpy as np
+import sklearn.preprocessing
+
+Input_data = np.array([2.1, -1.9, 5.5],
+[0.5, -7.9, 5.6],
+[-1.5, 2.4, 3.5],
+[5.9, 2.3, -5.8])
+
+Normalize data
+data_normalized_l1 = preprocessing.normalize(input_data, norm = 'l1')
+print("\nL1 normalized data:\n", data_normalized_l1)
+
+
+
+import numpy as np
+import sklearn.preprocessing
+
+Input_data = np.array([2.1, -1.9, 5.5],
+[0.5, -7.9, 5.6],
+[-1.5, 2.4, 3.5],
+[5.9, 2.3, -5.8])
+
+Normalize data
+data_normalized_l2 = preprocessing.normalize(input_data, norm = 'l2')
+print("\nL2 normalized data:\n", data_normalized_l2)
+
+
+
+import numpy as np
+from sklearn import preprocessing
+
+Sample input labels
+input_labels = ['red','black','green','yellow','white']
+
+Creating the label encoder
+encoder = preprocessing.LabelEncoder()
+encoder.fit(input_labels)
+
+import numpy as np
+from sklearn import preprocessing
+
+Sample input labels
+input_labels = ['red','black','green','yellow','white']
+
+encoding a set of labels
+test_labels = ['green','red','black']
+encoded_values = encoder.transform(test_labels)
+print("\nLabels =", test_labels)
+Labels = ['green', 'red', 'black']
+print("Encoded values =", list(encoded_values))
+
+
+
+import numpy as np
+from sklearn import linear_model
+import sklearn.metrics as sm
+importmatplotlib.pyplotasplt
+input = 'D:/ProgramData/linear.txt'
+training_samples = int(0.6 * len(X))
+testing_samples = len(X) - num_training
+X_train, y_train = X[:training_samples], y[:training_samples]
+X_test, y_test = X[training_samples:], y[training_samples:]
+reg_linear = linear_model.LinearRegression()
+reg_linear.fit(X_train, y_train)
+y_test_pred = reg_linear.predict(X_test)
+plt.scatter(X_test, y_test, color = 'red')
+plt.plot(X_test, y_test_pred, color = 'black', linewidth = 2)
+plt.xticks(())
+plt.yticks(())
+plt.show()
+
+import numpy as np
+from sklearn import linear_model
+import sklearn.metrics as sm
+import matplotlib.pyplot as plt
+fromsklearn.preprocessingimportPolynomialFeatures
+input = 'D:/ProgramData/Mul_linear.txt'
+input_data = np.loadtxt(input, delimiter=',')
+X, y = input_data[:, :-1], input_data[:, -1]
+training_samples = int(0.6 * len(X))
+testing_samples = len(X) - num_training
+X_train, y_train = X[:training_samples], y[:training_samples]
+X_test, y_test = X[training_samples:], y[training_samples:]
+reg_linear_mul = linear_model.LinearRegression()
+reg_linear_mul.fit(X_train, y_train)
+y_test_pred = reg_linear_mul.predict(X_test)
+print("Performance of Linear regressor:")
+print("Mean absolute error =", round(sm.mean_absolute_error(y_test, y_test_pred), 2))
+print("Mean squared error =", round(sm.mean_squared_error(y_test, y_test_pred), 2))
+print("Median abs error =", round(sm.median_absolute_error(y_test, y_test_pred), 2))
+print("Explain var scr=", round(sm.explained_variance_score(y_test, y_test_pred), 2))
+print("R2 score =", round(sm.r2_score(y_test, y_test_pred), 2))
+polynomial = PolynomialFeatures(degree = 10)
+X_train_transformed = polynomial.fit_transform(X_train)
+datapoint = [[2.23, 1.35, 1.12]]
+poly_datapoint = polynomial.fit_transform(datapoint)
+poly_linear_model = linear_model.LinearRegression()
+poly_linear_model.fit(X_train_transformed, y_train)
+print("\nLinear regression:\n", reg_linear_mul.predict(datapoint))
+print("\nPolynomial regression:\n", poly_linear_model.predict(poly_datapoint))
