@@ -1,0 +1,97 @@
+from sklearn import datasets
+from sklearn.cluster import KMeans
+iris_df = datasets.load_iris()
+model = KMeans(n_clusters=3)
+model.fit(iris_df.data)
+predicted_label = model.predict([[7.2, 3.5, 0.8, 1.6]])
+all_predictions = model.predict(iris_df.data)
+print(predicted_label)
+print(all_predictions)
+
+samples = seeds_df.values
+mergings = linkage(samples, method='complete')
+dendrogram(mergings,
+labels=varieties,
+leaf_rotation=90,
+leaf_font_size=6,
+)
+
+plt.show()
+
+from sklearn.datasets import load_iris
+import matplotlib.pyplot as plt
+from sklearn.cluster import DBSCAN
+from sklearn.decomposition import PCA
+iris = load_iris()
+dbscan = DBSCAN()
+dbscan.fit(iris.data)
+pca = PCA(n_components=2).fit(iris.data)
+pca_2d = pca.transform(iris.data)
+for i in range(0, pca_2d.shape[0]):
+if dbscan.labels_[i] == 0:
+c1 = plt.scatter(pca_2d[i, 0], pca_2d[i, 1], c='r', marker='+')
+elif dbscan.labels_[i] == 1:
+c2 = plt.scatter(pca_2d[i, 0], pca_2d[i, 1], c='g', marker='o')
+elif dbscan.labels_[i] == -1:
+c3 = plt.scatter(pca_2d[i, 0], pca_2d[i, 1], c='b', marker='*')
+
+plt.legend([c1, c2, c3], ['Êëàñòåð 1', 'Êëàñòåð 2', 'Øóì'])
+plt.title('DBSCAN íàøåë 2 êëàñòåðà è øóì')
+plt.show()
+
+from scipy.cluster import hierarchy
+from scipy.spatial.distance import pdist
+
+X = np.zeros((150, 2))
+
+np.random.seed(seed=42)
+X[:50, 0] = np.random.normal(loc=0.0, scale=.3, size=50)
+X[:50, 1] = np.random.normal(loc=0.0, scale=.3, size=50)
+
+X[50:100, 0] = np.random.normal(loc=2.0, scale=.5, size=50)
+X[50:100, 1] = np.random.normal(loc=-1.0, scale=.2, size=50)
+
+X[100:150, 0] = np.random.normal(loc=-1.0, scale=.2, size=50)
+X[100:150, 1] = np.random.normal(loc=2.0, scale=.5, size=50)
+
+distance_mat = pdist(X) # pdist ïîñ÷èòàåò íàì âåðõíèé òðåóãîëüíèê ìàòðèöû ïîïàðíûõ ðàññòîÿíèé
+
+Z = hierarchy.linkage(distance_mat, 'single') # linkage — ðåàëèçàöèÿ àãëîìåðàòèâíîãî àëãîðèòìà
+plt.figure(figsize=(10, 5))
+dn = hierarchy.dendrogram(Z, color_threshold=0.5)
+
+cdata = customer_data
+K = range(1, 20)
+KM = (sk_cluster.KMeans(n_clusters=k).fit(cdata) for k in K)
+centroids = (k.cluster_centers_ for k in KM)
+
+D_k = (sci_distance.cdist(cdata, cent, 'euclidean') for cent in centroids)
+dist = (np.min(D, axis=1) for D in D_k)
+avgWithinSS = [sum(d) / cdata.shape[0] for d in dist]
+plt.plot(K, avgWithinSS, 'b*-')
+plt.grid(True)
+plt.xlabel('Number of clusters')
+plt.ylabel('Average within-cluster sum of squares')
+plt.title('Elbow for KMeans clustering')
+plt.show()
+
+import numpy as np
+from sklearn.cluster import MeanShift
+import matplotlib.pyplot as plt
+from matplotlib import style
+style.use("ggplot")
+centers = [[2,2],[4,5],[3,10]]
+X, _ = make_blobs(n_samples = 500, centers = centers, cluster_std = 1)
+plt.scatter(X[:,0],X[:,1])
+plt.show()
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.neighbors import NearestNeighbors
+A = np.array([[3.1, 2.3], [2.3, 4.2], [3.9, 3.5], [3.7, 6.4], [4.8, 1.9],
+[8.3, 3.1], [5.2, 7.5], [4.8, 4.7], [3.5, 5.1], [4.4, 2.9],])
+k = 3
+test_data = [3.3, 2.9]
+plt.figure()
+plt.title('Input data')
+plt.scatter(A[:,0], A[:,1], marker = 'o', s = 100, color = 'black')
